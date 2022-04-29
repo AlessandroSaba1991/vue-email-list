@@ -10,8 +10,10 @@
 <body>
 
     <div id="app">
+        <ul v-if="data">
+            <li v-for="email in emails">{{email}}</li>
+        </ul>
 
-        
     </div>
 
 
