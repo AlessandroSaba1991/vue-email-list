@@ -1,18 +1,25 @@
 const app = new Vue({
     el: '#app',
     data:{
-        data:null,
-        emails:[]
+        emails:[],
     },
     methods:{},
     mounted(){
 
-        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-        .then(response => {
-            this.emails.push(response.data.response)
-        })
+        const new_array = []
+            for (let i=0;i<10;i++){
 
-        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                .then(response => {
+                    new_array.push(response.data.response+i)
+                })
+            }
+                this.emails = new_array
+                
+            
+        
+
+        /* axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
         .then(response => {
             this.emails.push(response.data.response)
         })
@@ -57,6 +64,6 @@ const app = new Vue({
             this.emails.push(response.data.response)
             this.data = response.data
         })
+        */
     }
-
 })
